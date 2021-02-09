@@ -11,14 +11,18 @@ body
  font-family: arial, sans-serif
  font-size: 14px
  .cardSlider
-  display: flex
-  width: 950px
-  overflow: hidden
+  display: block
+  width: fit-content
   position: relative
-  margin: 0 auto
+  margin: 10px auto 0 auto
   background-color: $cardSliderBG
   padding: 26px
-  .card
+  .cards_wrapper
+   display: flex
+   width: 950px
+   overflow: hidden
+   position: relative
+   .card
     flex: 1
     width: 308px
     background-color: $white
@@ -32,7 +36,7 @@ body
       height: 150px
       display: block
     .card_content
-     padding: 19px
+     padding: 19px 19px 5px 19px
      .title_wrapper
       display: flex
       align-items: center
@@ -66,6 +70,17 @@ body
       text-decoration: none
       &:hover
        text-decoration: underline
+  .arrows_wrapper
+   display: flex
+   margin: 10px auto 0 auto
+   width: 40px
+   height: 24px
+   .al-btn-0, 
+   .al-btn-1
+    flex: 1
+   .ar-btn-0,
+   .al-btn-1
+    flex: 1
        
 
 

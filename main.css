@@ -1,0 +1,13 @@
+body {
+  width: 100%;
+  background-color: white;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+}
+
+body .cardSlider {
+  width: 325px;
+  position: relative;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=main.css.map */

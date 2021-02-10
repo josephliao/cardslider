@@ -7,9 +7,8 @@ body {
 
 body .cardSlider {
   display: block;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 950px;
+  overflow: hidden;
   position: relative;
   margin: 10px auto 0 auto;
   background-color: #F6F6F6;
@@ -20,8 +19,7 @@ body .cardSlider .cards_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 950px;
-  overflow: hidden;
+  width: 100%;
   position: relative;
 }
 
@@ -115,17 +113,29 @@ body .cardSlider .arrows_wrapper {
   height: 24px;
 }
 
-body .cardSlider .arrows_wrapper .al-btn-0,
-body .cardSlider .arrows_wrapper .al-btn-1 {
+body .cardSlider .arrows_wrapper [class^="al-btn"],
+body .cardSlider .arrows_wrapper [class^="ar-btn"] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  cursor: pointer;
 }
 
-body .cardSlider .arrows_wrapper .ar-btn-0,
-body .cardSlider .arrows_wrapper .al-btn-1 {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+body .cardSlider .arrows_wrapper [class^="al-btn"] span,
+body .cardSlider .arrows_wrapper [class^="ar-btn"] span {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+body .cardSlider .arrows_wrapper [class^="al-btn"] span:hover,
+body .cardSlider .arrows_wrapper [class^="ar-btn"] span:hover {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+body .cardSlider .arrows_wrapper [class^="al-btn"] span svg:hover,
+body .cardSlider .arrows_wrapper [class^="ar-btn"] span svg:hover {
+  fill: white;
 }
 /*# sourceMappingURL=main.css.map */

@@ -12,6 +12,7 @@ var ready = (callback) => {
 ready(() => {
 	(function cardSlider(){
 		let c = document.getElementsByClassName('cardSlider');
+		var x = 328;
 
 		let featchCard = (i) => {
 			let l = c[i].getAttribute('data-set');
@@ -43,7 +44,7 @@ ready(() => {
 			gJson('http://127.0.0.1:3000/cards', function(data){
 				let d= JSON.parse(data),
 					card = '';
-				card += `<div class="cards_wrapper">`;
+				card += `<div class="cards_wrapper index-${i}">`;
 				for(let i=0; i<l; i++){
 					console.log(d[i].title);
 					card += `<div class="card" id="${d[i].id}">
@@ -71,13 +72,44 @@ ready(() => {
 				c[i].innerHTML = card;
 				document.querySelector('.al-btn-' + i).appendChild(arrowL);
 				document.querySelector('.ar-btn-' + i).appendChild(arrowR);
+
+				// Left Arrow Button
+				lBtn = (i) => {
+					let eL =['click', 'touchstart'];
+					let	c = 1;
+					for(e of eL){
+						arrowL.addEventListener(e, function(){ 
+						
+
+							document.querySelector('.index-' + i).style.left = `-${x * c}px`;
+							console.log(`left arrow i: ${i} c: ${c} `);
+							return c++;
+						}, false);
+					}
+				}
+				lBtn(i);
+
+				// Right Arrow Button
+				rBtn = (i) => {
+					let eL =['click', 'touchstart'];
+					let	c = 1;
+					for(e of eL){
+						arrowR.addEventListener(e, function(){ 
+							
+
+							document.querySelector('.index-' + i).style.left = `${x * c}px`;
+							console.log(`right arrow ${i} c: ${c}`);
+						}, false);
+					}
+				}
+				rBtn(i);
 			});
+
+
 
 		}
 		//Initial featchCard 
-		Array.prototype.forEach.call(c, function(c, i) {
-			featchCard(i);
-		});
+		Array.prototype.forEach.call(c, function(c, i) {featchCard(i);});
 		
 	})();
 

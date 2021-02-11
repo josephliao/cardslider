@@ -12,8 +12,20 @@ var ready = (callback) => {
 ready(() => {
 	(function cardSlider(){
 		let c = document.getElementsByClassName('cardSlider');
-		var x = 328;
+		let x = 328;
 
+		// Check devices screen size
+		let screenSize = () => {
+			if(document.body.clientWidth >= 500){
+				return 'desktop';
+			} else {
+				return 'mobile';
+			}
+		};
+		screenSize();
+		window.addEventListener('resize', screenSize);
+
+		// Featch Card
 		let featchCard = (i) => {
 			let l = c[i].getAttribute('data-set');
 			let	arrowR = document.createElement('span');
@@ -27,7 +39,7 @@ ready(() => {
 			arrowL.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2DA936" width="20px" height="20px">
 									<path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
 								</svg>`;	
-			//Get Card JSon Data
+			//  Get Card JSon Data
 			var gJson = function(file, callback) {
 				var xml = new XMLHttpRequest();
 				xml.overrideMimeType("application/json");
@@ -40,14 +52,15 @@ ready(() => {
 				xml.send(null);
 			}
 
-			//Get Dummy Card JSON Feed
+			//  Get Cards JSON Feed
 			gJson('http://127.0.0.1:3000/cards', function(data){
 				let d= JSON.parse(data),
 					card = '';
-				card += `<div class="cards_wrapper index-${i}">`;
+					
+				card += `<div class="cards_wrapper index-${i}" style="left: 0">`;
+
 				for(let i=0; i<l; i++){
-					console.log(d[i].title);
-					card += `<div class="card" id="${d[i].id}">
+					card += `<div class="card card-${d[i].id}">
 								<div class="imgWrapper">
 									<img src="${d[i].image_url}" class="img">
 								</div>
@@ -72,18 +85,39 @@ ready(() => {
 				c[i].innerHTML = card;
 				document.querySelector('.al-btn-' + i).appendChild(arrowL);
 				document.querySelector('.ar-btn-' + i).appendChild(arrowR);
-
+				let x = 1;
 				// Left Arrow Button
 				lBtn = (i) => {
 					let eL =['click', 'touchstart'];
-					let	c = 1;
+					
 					for(e of eL){
 						arrowL.addEventListener(e, function(){ 
-						
-
-							document.querySelector('.index-' + i).style.left = `-${x * c}px`;
-							console.log(`left arrow i: ${i} c: ${c} `);
-							return c++;
+							
+							if(document.body.clientWidth >= 500){
+								var l_2 = l - 2;
+							} else {
+								var l_2 = l;
+							}
+							console.log('l_2: ' + l_2);
+							if(x > 0 && x < 4){
+								let len = x+1;
+								for(let j=1; j < len; j++){
+									if(j < 4){
+										let el = document.querySelector('.index-' + i),
+											cardI = el.querySelector('.card-' + j);
+										cardI.classList.remove('showA');
+										cardI.classList.add('hideA');
+										setTimeout(function(){
+											cardI.classList.add('hide');
+										}, 1000)
+									}
+								}
+								console.log(l);
+								return x++;
+								
+							}
+							
+							
 						}, false);
 					}
 				}
@@ -92,13 +126,19 @@ ready(() => {
 				// Right Arrow Button
 				rBtn = (i) => {
 					let eL =['click', 'touchstart'];
-					let	c = 1;
+					
 					for(e of eL){
 						arrowR.addEventListener(e, function(){ 
-							
-
-							document.querySelector('.index-' + i).style.left = `${x * c}px`;
-							console.log(`right arrow ${i} c: ${c}`);
+							if(x > 0){
+								let el = document.querySelector('.index-' + i),
+									cardI = el.querySelector('.card-' + x);
+								cardI.classList.remove('hide');
+								cardI.classList.remove('hideA');
+								cardI.classList.add('showA');
+								
+								console.log(x);
+								return x--;
+							}
 						}, false);
 					}
 				}

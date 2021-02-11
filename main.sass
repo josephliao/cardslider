@@ -7,6 +7,41 @@ $cT2: #ADADAD
 $CLink: #2DA936
 $red: #FF0000
 
+=keyframes($n)
+ @-webkit-keyframes #{$n}  
+  @content
+ @-moz-keyframes #{$n} 
+  @content
+ @-ms-keyframes #{$n}  
+  @content
+ @-o-keyframes #{$n}  
+  @content
+ @keyframes #{$n}  
+  @content
+
+=a($n, $d, $r) 
+ -webkit-animation: $n $d $r
+ -moz-animation: $n $d $r
+ -ms-animation: $n $d $r
+ -o-animation: $n $d $r
+ animation: $n $d $r
+
+ +keyframes(hA)  
+  0% 
+   opacity: 1
+   margin-left: 0
+ 
+  100% 
+   opacity: 0
+   margin-left: -308px
+
+ +keyframes(sA)  
+  0% 
+   opacity: 0
+   margin-left: -308px
+  100% 
+   opacity: 1
+   margin-left: 0
 body
  width: 100%
  background-color: $white
@@ -14,7 +49,7 @@ body
  font-size: 14px
  .cardSlider
   display: block
-  width: 950px
+  width: 945px
   overflow: hidden
   position: relative
   margin: 10px auto 0 auto
@@ -25,11 +60,19 @@ body
    width: 100%
    position: relative
    .card
-    flex: 1
+    position: relative
     width: 308px
     background-color: $white
     padding: 0
     margin-right: 26px
+    &.hideA
+     @include a(hA, 1s, 1)
+     opacity: 0
+     &.hide
+      display: none
+    &.showA
+      @include a(sA, 1S, 1)
+      opacity: 1
     &:last-child
      margin-right: 0
     .imgWrapper

@@ -13,18 +13,6 @@ ready(() => {
 	(function cardSlider(){
 		let c = document.getElementsByClassName('cardSlider');
 		let x = 328;
-
-		// Check devices screen size
-		// let screenSize = () => {
-		// 	if(document.body.clientWidth >= 500){
-		// 		return 'desktop';
-		// 	} else {
-		// 		return 'mobile';
-		// 	}
-		// };
-		// screenSize();
-		// window.addEventListener('resize', screenSize);
-
 		// Featch Card
 		let featchCard = (i) => {
 			let l = c[i].getAttribute('data-set');
@@ -95,18 +83,12 @@ ready(() => {
 
 				// Left Arrow Button
 				lBtn = (i) => {
-					let eL =['click', 'touchstart'];
-					
+					let eL =['click'];
 					for(e of eL){
 						arrowL.addEventListener(e, function(){ 
-							
-							if(document.body.clientWidth >= 500){
-								var len2 = l - 2;
-							} else {
-								var len2 = l;
-							}
-							console.log('len2: ' + len2);
-							if(x > 0 && x < len2){
+							var len2;
+							(document.body.clientWidth >= 500)? len2 = l - 2 : len2 = l;
+							if(x => 1 && x < len2){
 								let len = x+1;
 								for(let j=1; j < len; j++){
 									let el = document.querySelector('.index-' + i);
@@ -116,15 +98,11 @@ ready(() => {
 										cardI.classList.add('hideA');
 										setTimeout(function(){
 											cardI.classList.add('hide');
-										}, 500)
+										}, 800)
 									}
 								}
-								console.log(l);
 								return x++;
-								
 							}
-							
-							
 						}, false);
 					}
 				}
@@ -132,19 +110,27 @@ ready(() => {
 
 				// Right Arrow Button
 				rBtn = (i) => {
-					let eL =['click', 'touchstart'];
+					let eL =['click'];
 					
 					for(e of eL){
 						arrowR.addEventListener(e, function(){ 
 							let el = document.querySelector('.index-' + i);
-							if(x > 0){
-								let	cardI = el.querySelector('.card-' + x);
-								cardI.classList.remove('hide');
-								cardI.classList.remove('hideA');
-								cardI.classList.add('showA');
-								
-								console.log(x);
-								return x--;
+							if(x > 1){
+								var j;
+								if(document.body.clientWidth >= 500){
+									(x > 2)? j = x - 2 : j = 1;
+								} else {
+									j = x - 1;
+								}
+								console.log(`j: ${j} x: ${x}`);
+								let	cardI = el.querySelector('.card-' + j);
+								if(cardI != null){
+									cardI.classList.remove('hide');
+									cardI.classList.remove('hideA');
+									cardI.classList.add('showA');
+									setTimeout(function(){cardI.classList.remove('showA');}, 800)
+									return x--;
+								}
 							}
 						}, false);
 					}

@@ -240,4 +240,10 @@ body .cardSlider .arrows_wrapper [class^="al-btn"] span svg:hover,
 body .cardSlider .arrows_wrapper [class^="ar-btn"] span svg:hover {
   fill: white;
 }
+
+@media (max-width: 575.98px) {
+  body .cardSlider {
+    width: 300px;
+  }
+}
 /*# sourceMappingURL=main.css.map */

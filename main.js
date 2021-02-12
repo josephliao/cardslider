@@ -1,7 +1,7 @@
 /* 
 	Card Slider
 	Author: Joseph Liao
-	Date: 02/09/2021
+	Date: 02/11/2021
 */
 
 var ready = (callback) => {
@@ -15,15 +15,15 @@ ready(() => {
 		let x = 328;
 
 		// Check devices screen size
-		let screenSize = () => {
-			if(document.body.clientWidth >= 500){
-				return 'desktop';
-			} else {
-				return 'mobile';
-			}
-		};
-		screenSize();
-		window.addEventListener('resize', screenSize);
+		// let screenSize = () => {
+		// 	if(document.body.clientWidth >= 500){
+		// 		return 'desktop';
+		// 	} else {
+		// 		return 'mobile';
+		// 	}
+		// };
+		// screenSize();
+		// window.addEventListener('resize', screenSize);
 
 		// Featch Card
 		let featchCard = (i) => {
@@ -41,7 +41,9 @@ ready(() => {
 								</svg>`;	
 			//  Get Card JSon Data
 			var gJson = function(file, callback) {
+
 				var xml = new XMLHttpRequest();
+
 				xml.overrideMimeType("application/json");
 				xml.open("GET", file, true);
 				xml.onreadystatechange = function() {
@@ -49,6 +51,7 @@ ready(() => {
 						callback(xml.responseText);
 					}
 				}
+
 				xml.send(null);
 			}
 
@@ -82,10 +85,14 @@ ready(() => {
 							<div class="al-btn-${i}"></div>
 							<div class="ar-btn-${i}"></div>
 						</div>`;	
+
 				c[i].innerHTML = card;
+
 				document.querySelector('.al-btn-' + i).appendChild(arrowL);
 				document.querySelector('.ar-btn-' + i).appendChild(arrowR);
+
 				let x = 1;
+
 				// Left Arrow Button
 				lBtn = (i) => {
 					let eL =['click', 'touchstart'];
@@ -94,22 +101,22 @@ ready(() => {
 						arrowL.addEventListener(e, function(){ 
 							
 							if(document.body.clientWidth >= 500){
-								var l_2 = l - 2;
+								var len2 = l - 2;
 							} else {
-								var l_2 = l;
+								var len2 = l;
 							}
-							console.log('l_2: ' + l_2);
-							if(x > 0 && x < 4){
+							console.log('len2: ' + len2);
+							if(x > 0 && x < len2){
 								let len = x+1;
 								for(let j=1; j < len; j++){
-									if(j < 4){
-										let el = document.querySelector('.index-' + i),
-											cardI = el.querySelector('.card-' + j);
+									let el = document.querySelector('.index-' + i);
+									if(j < len2){
+										let cardI = el.querySelector('.card-' + j);
 										cardI.classList.remove('showA');
 										cardI.classList.add('hideA');
 										setTimeout(function(){
 											cardI.classList.add('hide');
-										}, 1000)
+										}, 500)
 									}
 								}
 								console.log(l);
@@ -129,9 +136,9 @@ ready(() => {
 					
 					for(e of eL){
 						arrowR.addEventListener(e, function(){ 
+							let el = document.querySelector('.index-' + i);
 							if(x > 0){
-								let el = document.querySelector('.index-' + i),
-									cardI = el.querySelector('.card-' + x);
+								let	cardI = el.querySelector('.card-' + x);
 								cardI.classList.remove('hide');
 								cardI.classList.remove('hideA');
 								cardI.classList.add('showA');

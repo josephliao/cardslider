@@ -7,12 +7,12 @@ body {
 
 body .cardSlider {
   display: block;
-  width: 945px;
+  width: 1004px;
   overflow: hidden;
   position: relative;
   margin: 10px auto 0 auto;
   background-color: #F6F6F6;
-  padding: 26px;
+  padding: 26px 26px 10px 26px;
 }
 
 body .cardSlider .cards_wrapper {
@@ -32,8 +32,8 @@ body .cardSlider .cards_wrapper .card {
 }
 
 body .cardSlider .cards_wrapper .card.hideA {
-  -webkit-animation: hA 1s 1;
-  animation: hA 1s 1;
+  -webkit-animation: hA 0.8s 1;
+  animation: hA 0.8s 1;
   opacity: 0;
 }
 
@@ -86,8 +86,8 @@ body .cardSlider .cards_wrapper .card.hideA.hide {
 }
 
 body .cardSlider .cards_wrapper .card.showA {
-  -webkit-animation: sA 1S 1;
-  animation: sA 1S 1;
+  -webkit-animation: sA 0.8S 1;
+  animation: sA 0.8S 1;
   opacity: 1;
 }
 
@@ -243,7 +243,7 @@ body .cardSlider .arrows_wrapper [class^="ar-btn"] span svg:hover {
 
 @media (max-width: 575.98px) {
   body .cardSlider {
-    width: 300px;
+    width: 350px;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -3,13 +3,7 @@
 	Author: Joseph Liao
 	Date: 02/11/2021
 */
-
-var ready = (callback) => {
-	  if (document.readyState != "loading") callback();
-	  else document.addEventListener("DOMContentLoaded", callback);
-}
-
-ready(() => {
+(function (){
 	(function cardSlider(){
 		let c = document.getElementsByClassName('cardSlider');
 		let x = 328;
@@ -145,7 +139,4 @@ ready(() => {
 		Array.prototype.forEach.call(c, function(c, i) {featchCard(i);});
 		
 	})();
-
-	
-});
-
+})();

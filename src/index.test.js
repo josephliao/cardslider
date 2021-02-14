@@ -1,5 +1,5 @@
-import { fireEvent, getByText } from '@testing-library/dom'
-import '@testing-library/jest-dom/extend-expect'
+import { fireEvent, getByRole, queryByTestId, getByText } from '@testing-library/dom'
+import { screen } from '@testing-library/jest-dom/extend-expect'
 import { JSDOM } from 'jsdom'
 import fs from 'fs'
 import path from 'path'
@@ -24,8 +24,8 @@ describe('index.html', () => {
     expect(container.querySelectorAll('.card')).not.toBeNull()
   })
 
-  it('renders cards images', () => {
-    expect(container.querySelectorAll('#al-0')).not.toBeNull()
+  it('renders cards images', async () => {
+    expect(container.querySelectorAll('.imgWrapper')).not.toBeNull()
   })
 
 
@@ -36,19 +36,24 @@ describe('index.html', () => {
      expect(container.querySelectorAll('#ar-1')).not.toBeNull()
   })
 
-  // it('render ', async () => {
-  //   const button = getByText(container, 'Click me for a terrible pun')
-    
-  //   fireEvent.click(button)
-  //   let generatedParagraphs = container.querySelectorAll('#pun-container p')
-  //   expect(generatedParagraphs.length).toBe(1)
-
-  //   fireEvent.click(button)
-  //   generatedParagraphs = container.querySelectorAll('#pun-container p')
-  //   expect(generatedParagraphs.length).toBe(2)
-
-  //   fireEvent.click(button)
-  //   generatedParagraphs = container.querySelectorAll('#pun-container p')
-  //   expect(generatedParagraphs.length).toBe(3)
-  // })
+  it('render click cards slider arrow', () => {
+      setTimeout(function(){
+        const al0 = container.querySelector('#al-0'),
+              ar0 = container.querySelector('#ar-0'),
+              al1 = container.querySelector('#al-1'),
+              ar1 = container.querySelector('#ar-1')
+        fireEvent.click(al0)
+        let generatedClick1 = container.querySelectorAll('.card')
+        expect(generatedClick1.firstChild.classList.contains('hideA')).toBe(true)
+        fireEvent.click(ar0)
+        let generatedClick2 = container.querySelectorAll('.card')
+        expect(generatedClick2.firstChild.classList.contains('hideA')).toBe(true)
+        fireEvent.click(al1)
+        let generatedClick3 = container.querySelectorAll('.card')
+        expect(generatedClick3.firstChild.classList.contains('hideA')).toBe(true)
+        fireEvent.click(ar1)
+        let generatedClick4 = container.querySelectorAll('.card')
+        expect(generatedClick4.firstChild.classList.contains('hideA')).toBe(true)
+      }, 1)  
+  })
 })

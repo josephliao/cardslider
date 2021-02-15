@@ -46,7 +46,7 @@
 				for(let i=0; i<l; i++){
 					card += `<div class="card card-${d[i].id}">
 								<div class="imgWrapper">
-									<img src="${d[i].image_url}" class="img">
+									<img src="${d[i].image_url}" class="img" alt="Promo Image for ${d[i].title}">
 								</div>
 								<div class="card_content">
 									<div class="title_wrapper">
@@ -57,7 +57,7 @@
 										</div>
 									</div>
 									<p>${d[i].text}</p>
-									<a href="https://www.gohenry.com/uk/" target="_blank" class="learMore">Learn More</a>
+									<a href="https://www.gohenry.com/uk/" target="_blank" class="learMore" aria-label="Learn More">Learn More</a>
 								</div>
 							</div>`
 				}

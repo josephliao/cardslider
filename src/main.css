@@ -44,13 +44,13 @@ body .cardSlider .cards_wrapper .card.hideA {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
 }
 
@@ -59,13 +59,13 @@ body .cardSlider .cards_wrapper .card.hideA {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
 }
 
@@ -74,13 +74,13 @@ body .cardSlider .cards_wrapper .card.hideA {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
   100% {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
 }
 
@@ -89,13 +89,13 @@ body .cardSlider .cards_wrapper .card.hideA {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
   100% {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
 }
 
@@ -116,13 +116,13 @@ body .cardSlider .cards_wrapper .card.showA {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
 }
 
@@ -131,13 +131,13 @@ body .cardSlider .cards_wrapper .card.showA {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
 }
 
@@ -146,13 +146,13 @@ body .cardSlider .cards_wrapper .card.showA {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
   100% {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
 }
 
@@ -161,13 +161,13 @@ body .cardSlider .cards_wrapper .card.showA {
     opacity: 0;
     margin-left: -308px;
     -webkit-transform: rotateX(20deg) rotateY(-90deg);
-            transform: rotateX(20deg) rotateY(-90deg);
+    transform: rotateX(20deg) rotateY(-90deg);
   }
   100% {
     opacity: 1;
     margin-left: 0;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
 }
 

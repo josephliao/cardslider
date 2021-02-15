@@ -1,6 +1,6 @@
 # cardslider
 Take Home Assignment (HTML/CSS/JAVASCRIPT)
-cardslider/src/index.html
+Run the Dummy Card API to parse JSON file locally, then open cardslider/src/index.html in the browser.
 
 # Dummy Card API
 Simple server exposing *dummy* data for display on cards.

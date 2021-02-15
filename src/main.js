@@ -25,9 +25,7 @@
 								</svg>`;	
 			//  Get Card JSon Data
 			var gJson = function(file, callback) {
-
 				var xml = new XMLHttpRequest();
-
 				xml.overrideMimeType("application/json");
 				xml.open("GET", file, true);
 				xml.onreadystatechange = function() {
@@ -35,7 +33,6 @@
 						callback(xml.responseText);
 					}
 				}
-
 				xml.send(null);
 			}
 
@@ -44,7 +41,7 @@
 				let d= JSON.parse(data),
 					card = '';
 					
-				card += `<div class="cards_wrapper index-${i}" style="left: 0">`;
+				card += `<div class="cards_wrapper index-${i}">`;
 
 				for(let i=0; i<l; i++){
 					card += `<div class="card card-${d[i].id}">
@@ -84,7 +81,7 @@
 						arrowL.addEventListener(e, function(){ 
 							var len2;
 							(document.body.clientWidth >= 500)? len2 = l - 2 : len2 = l;
-							if(x => 1 && x < len2){
+							if(x >= 1){
 								let len = x+1;
 								for(let j=1; j < len; j++){
 									let el = document.querySelector('.index-' + i);
@@ -94,10 +91,10 @@
 										cardI.classList.add('hideA');
 										setTimeout(function(){
 											cardI.classList.add('hide');
-										}, 800)
+										}, 1000)
 									}
 								}
-								return x++;
+								if(x <= len2){return x++;}	
 							}
 						}, false);
 					}
@@ -115,16 +112,17 @@
 								var j;
 								if(document.body.clientWidth >= 500){
 									(x > 2)? j = x - 2 : j = 1;
+									console.log('test 1');
 								} else {
 									j = x - 1;
+									console.log('test 2');
 								}
 								console.log(`j: ${j} x: ${x}`);
 								let	cardI = el.querySelector('.card-' + j);
 								if(cardI != null){
-									cardI.classList.remove('hide');
-									cardI.classList.remove('hideA');
+									['hide','hideA'].map((e)=> cardI.classList.remove(e));
 									cardI.classList.add('showA');
-									setTimeout(function(){cardI.classList.remove('showA');}, 800)
+									setTimeout(function(){cardI.classList.remove('showA');}, 1000)
 									return x--;
 								}
 							}
